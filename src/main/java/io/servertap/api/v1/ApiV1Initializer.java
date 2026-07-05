@@ -17,6 +17,7 @@ public class ApiV1Initializer {
     private final PlayerApi playerApi;
     private final WorldApi worldApi;
     private final PAPIApi papiApi;
+    private final RegistryApi registryApi;
 
     public ApiV1Initializer(ServerTapMain main, Logger log, LagDetector lagDetector, ConsoleListener consoleListener,
                             ExternalPluginWrapperRepo externalPluginWrapperRepo) {
@@ -28,6 +29,7 @@ public class ApiV1Initializer {
         this.playerApi = new PlayerApi(log, externalPluginWrapperRepo.getEconomyWrapper());
         this.worldApi = new WorldApi(main, log);
         this.papiApi = new PAPIApi();
+        this.registryApi = new RegistryApi();
     }
 
     public WebsocketHandler getWebsocketHandler() {
@@ -60,5 +62,9 @@ public class ApiV1Initializer {
 
     public PAPIApi getPapiApi() {
         return papiApi;
+    }
+
+    public RegistryApi getRegistryApi() {
+        return registryApi;
     }
 }

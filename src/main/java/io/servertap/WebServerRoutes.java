@@ -71,6 +71,10 @@ public final class WebServerRoutes {
 
         // Advancement routes
         pr.get("advancements", api.getAdvancementsApi()::getAdvancements);
+
+        // Registry routes
+        pr.get("registries", api.getRegistryApi()::getRegistries);
+        pr.get("registries/{registryName}", api.getRegistryApi()::getRegistryKeys);
     }
 
     private static class PrefixedRouteBuilder {
